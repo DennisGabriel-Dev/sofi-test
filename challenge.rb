@@ -1,7 +1,11 @@
 # ----------------- Implementation (TODO) -----------------
-def group_by_prefix(words, n)
+def validate_args(words, n)
   raise ArgumentError, "words not Array should fail" unless words.is_a?(Array)
   raise ArgumentError, "n <= 0 should fail" if n <= 0
+end
+
+def group_by_prefix(words, n)
+  validate_args(words, n)
   prefixes = {}
   words.each do |word|
     next unless word.is_a?(String)
