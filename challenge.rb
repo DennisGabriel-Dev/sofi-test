@@ -6,15 +6,15 @@ end
 
 def group_by_prefix(words, n)
   validate_args(words, n)
-  prefixes = {}
+  groups_by_prefix = {}
   words.each do |word|
     next unless word.is_a?(String)
-    window = word[0...n].downcase
-    next if window.length < n
-    prefixes[window] ||= []
-    prefixes[window] << word
+    prefix = word[0...n].downcase
+    next if prefix.length < n
+    groups_by_prefix[prefix] ||= []
+    groups_by_prefix[prefix] << word
   end
-  prefixes.values
+  groups_by_prefix.values
 end
 
 # ----------------- Color helpers -----------------
