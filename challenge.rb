@@ -11,9 +11,7 @@ def group_by_prefix(words, n)
     next unless word.is_a?(String)
     window = word[0...n].downcase
     next if window.length < n
-    if prefixes[window].nil?
-      prefixes[window] = []
-    end
+    prefixes[window] ||= []
     prefixes[window] << word
   end
   prefixes.values
